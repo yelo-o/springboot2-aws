@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns="http://www.w3.org/1999/html">
+<th:block th:replace="layout/header :: headerFragment"></th:block>
+
+<body>
+    <h1>스프링 부트로 시작하는 웹 서비스 version 2</h1>
+    <div class="col-md-12">
+    <!-- 로그인 기능 영역 -->
+        <div class="row">
+            <div class="col-md-6">
+                <a href="/posts/save" role="button" class="btn btn-primary">글 등록</a>
+
+                <div th:unless="${userName}">
+                    <a th:href="@{/oauth2/authorization/google}" class="btn btn-success active" role="button">Google Login</a>
+                    <a th:href="@{/oauth2/authorization/naver}" class="btn btn-secondary active" role="button">Naver Login</a>
+                </div>
+                <div th:if="${userName}">
+                    Logged in as : <span id="user" th:text="${userName}"></span>
+                    <a th:href="@{/logout}" class="btn btn-info active" role="button">Logout</a>
+                </div>
+
+            </div>
+        </div>
+        <br>
+        <!-- 목록 출력 영역 -->
+        <table class="table table-horizontal table-boarded">
+            <thead class="thead-strong">
+                <tr>
+                    <th>게시글번호</th>
+                    <th>제목</th>
+                    <th>작성자</th>
+                    <th>최종수정일</th>
+                </tr>
+            </thead>
+
+            <tbody id="tbody">
+                <tr th:each="p : ${posts}">
+                    <td th:text="${p.id}"></td>
+                    <!--<td th:text="${p.title}"></td>-->
+                    <td>
+                        <a th:text="${p.title}" th:href="@{/posts/update/{id}(id=${p.id})}" />
+                    </td>
+                    <td th:text="${p.author}"></td>
+                    <td th:text="${p.modifiedDate}"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div th:replace="~{layout/footer :: footerFragment}"></div>
+</body>
+</html>
