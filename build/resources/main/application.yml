@@ -23,15 +23,11 @@ spring:
         format_sql: true
         show_sql: true
 
-  # OAuth
+  # Test OAuth
   profiles:
-    include: oauth # application-oauth.yml 을 참조 함
+    include: oauth
 
-  # Session Store
+  # Test Session Store
   session:
     store-type: jdbc
-
-  #
-  pid:
-    file: /home/ec2-user/app/step2/springboot2-aws.pid
 
