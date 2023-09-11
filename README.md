@@ -12,4 +12,8 @@ jdbc:h2:mem:testdb
 
 
 ## Naver 로그인 api 추가
-https://developers.naver.com/apps/#/register?api=nvlogin# springboot2-aws
+https://developers.naver.com/apps/#/register?api=nvlogin#
+
+
+
+
