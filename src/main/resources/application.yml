@@ -25,7 +25,7 @@ spring:
 
   # OAuth
   profiles:
-    include: real # application-oauth.yml 을 참조 함
+    include: oauth # application-oauth.yml 을 참조 함
 
   # Session Store
   session:
