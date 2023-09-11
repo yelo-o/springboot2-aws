@@ -16,11 +16,10 @@ public class ProfileController {
     @GetMapping("/profile")
     public String profile() {
         List<String> profiles = Arrays.asList(env.getActiveProfiles()); //현재 실행 중인 active profile을 모두 가져옴
-        List<String> realprofiles = Arrays.asList("real", "real1", "real2");
+        List<String> realProfiles = Arrays.asList("real", "real1", "real2");
         String defaultProfile = profiles.isEmpty() ? "default" : profiles.get(0);
 
-        return profiles.stream().filter(realprofiles::contains).findAny().orElse(defaultProfile);
+        return profiles.stream().filter(realProfiles::contains).findAny().orElse(defaultProfile);
     }
-
 
 }

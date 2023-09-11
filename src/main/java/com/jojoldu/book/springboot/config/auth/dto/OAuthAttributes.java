@@ -45,7 +45,7 @@ public class OAuthAttributes {
 
     //네이버 인증
     private static OAuthAttributes ofNaver(String userNameAttributeName, Map<String, Object> attributes) {
-        Map<String, Object> response = (Map<String, Object>) attributes.get("response");
+        Map<String, Object> response = ( Map<String, Object> ) attributes.get("response");
         return OAuthAttributes.builder()
                 .name( (String) response.get("name") )
                 .email( (String) response.get("email") )
