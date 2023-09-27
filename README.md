@@ -14,6 +14,6 @@ jdbc:h2:mem:testdb
 ## Naver 로그인 api 추가
 https://developers.naver.com/apps/#/register?api=nvlogin#
 
-AWS 업로드 테스트
+AWS 업로드 다시 테스트
 
 
